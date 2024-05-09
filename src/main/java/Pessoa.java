@@ -1,20 +1,17 @@
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Pessoa {
     private String nome;
     private Integer idade;
-    private Carro carro;
+    private ArrayList<Carro> carros;
 
     public Pessoa(String nome, Integer idade) {
         this.nome = nome;
         this.idade = idade;
+        this.carros = new ArrayList<>();
     }
 
-    public Pessoa(String nome, Integer idade, Carro carro) {
-        this.nome = nome;
-        this.idade = idade;
-        this.carro = carro;
-    }
 
     public String getNome() {
         return nome;
@@ -32,6 +29,17 @@ public class Pessoa {
         this.idade = idade;
     }
 
+    public ArrayList<Carro> getCarros() {
+        return carros;
+    }
+
+    public void setCarros(ArrayList<Carro> carros) {
+        this.carros = carros;
+    }
+    public void addCarros(Carro carro) {
+        this.carros.add(carro);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,6 +50,6 @@ public class Pessoa {
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, idade, carro);
+        return Objects.hash(nome, idade);
     }
 }
